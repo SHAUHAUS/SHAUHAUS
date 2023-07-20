@@ -28,5 +28,5 @@ function draw() {
 }
 
 function mousePressed(){
-	window.open("https://apohl.xyz/MSU/msu/spring_22/3323_01_S_22");
+	window.open("https://shauha.us/MSU/msu/spring_22/3323_01_S_22");
 }
