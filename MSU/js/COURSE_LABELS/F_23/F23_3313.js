@@ -30,5 +30,5 @@ function draw() {
 }
 
 function mousePressed(){
-	window.open("https://shauha.us/MSU/msu/fall_23/3313_F_23.html");
+	window.open("https://shauha.us/MSU/msu/spring_22/3313_F_23.html");
 }

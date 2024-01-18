@@ -13,22 +13,22 @@ function setup() {
 	textSize(width/6);
 	textAlign(CENTER, CENTER);
 	
-	fill(150, 0, 250);
-	// fill(250, 0, 150);
+	// fill(150, 0, 250);
+	fill(225, 25, 25);
 	
 }
 
 function draw() {
-	background(230, 50, 125, 20);
-	// background(125, 50, 230, 20);
+	// background(230, 50, 125, 20);
+	background(50, 180, 70, 20);
 	
 	translate(width/2, height/2);
 	rotate(frameCount*.02);
 	rotate(mouseX/20);
 	
-	text('F23_3313', 0, 0);
+	text('S23_MSBH', 0, 0);
 }
 
 function mousePressed(){
-	window.open("https://shauha.us/MSU/msu/fall_23/3313_F_23.html");
+	window.open("https://shauha.us/MSU/msu/spring_23/GD2_MSBHM_23.html");
 }
