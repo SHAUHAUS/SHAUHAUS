@@ -1,0 +1,102 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+		<title>MP1_GD2_S24</title>
+	
+	<link rel="stylesheet" href="../../../../../css/stylesheet.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+
+</head>
+
+<body>
+	
+		<div class="jsCont">
+		<script type="text/javascript">
+//BURN_WORLD
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+
+
+let img,img2,img3,img4,img5;
+
+// make a cold planet (notes)
+function preload(){
+
+	img = loadImage("https://i.imgur.com/q62FsK8.jpg");
+	img2 = loadImage("https://i.imgur.com/b5oGtL2.jpg");
+	img3 = loadImage("https://i.imgur.com/7nXJKGM.jpg");
+	img4 = loadImage("https://i.imgur.com/1DrjSqk.jpg");
+	img5 = loadImage("https://i.imgur.com/2eqWH1Y.jpg");
+
+	
+}
+
+
+function setup() {
+background(0);
+createCanvas(windowWidth, windowHeight, WEBGL);
+
+	
+}
+
+function draw() {
+	background(0);
+	
+	push();
+	rotateX(frameCount*.005);
+	rotateY(frameCount*.005);
+
+	texture(img4);
+
+	sphere(width/8);
+	pop();
+	
+	rotateX(-frameCount*.002);
+	rotateY(-frameCount*.002);
+	
+	texture(img5)
+	
+	torus(width/5, 11);
+	texture(img2)
+	
+	sphere(width, height);
+	
+	
+	orbitControl();
+	
+	
+}
+
+</script>
+	</div>
+
+
+<!-- </div> -->
+
+</body>
+	
+
+</html>
