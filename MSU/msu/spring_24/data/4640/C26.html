@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+		<title>MP1_GD2_S24</title>
+	
+	<link rel="stylesheet" href="../../../../css/stylesheet.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+
+</head>
+
+<body>
+	
+		<div class="jsCont">
+		<script type="text/javascript">
+			function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+  return oVal += (iVal - oVal) * eVal;
+}
+
+let img;
+
+function preload(){
+	
+	img = loadImage("https://i.imgur.com/bMpJwi9.gif");
+}
+
+function setup() {
+	background(25);
+	createCanvas(windowWidth, windowHeight);
+	imageMode(CENTER);
+	frameRate(25);
+	// img.resize(0, height);
+	
+}
+
+function draw() {
+	background(25, 25);
+	
+	image(img, width/2+mouseX/50, height/2+mouseY/50);
+	
+}
+		</script>
+	</div>
+
+
+<!-- </div> -->
+
+</body>
+	
+
+</html>
