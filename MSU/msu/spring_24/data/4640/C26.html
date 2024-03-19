@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="UTF-8">
-		<title>MP1_GD2_S24</title>
+		<title>C26</title>
 	
 	<link rel="stylesheet" href="../../../../css/stylesheet.css">
 
@@ -30,27 +30,69 @@ function ease(iVal, oVal, eVal){
   return oVal += (iVal - oVal) * eVal;
 }
 
-let img;
+// Bouncing img[index] Logo
+// Daniel Shiffman
+// https://thecodingtrain.com/challenges/131-bouncing-img[index]-logo.html
+// https://youtu.be/0j86zuqqTlQ
+// https://editor.p5js.org/codingtrain/sketches/S-es-dYVn
 
-function preload(){
-	
-	img = loadImage("https://i.imgur.com/bMpJwi9.gif");
+let x;
+let y;
+
+let xspeed;
+let yspeed;
+
+let img = [];
+let index = 0;
+
+
+function preload() {
+  img[0] = loadImage('https://i.imgur.com/QqT8l7R.png');
+  img[1] = loadImage('https://i.imgur.com/K6AxTuv.png');
+  img[2] = loadImage('https://i.imgur.com/KdX3Fl3.png');
+  img[3] = loadImage('https://i.imgur.com/o4ofS38.png');
+  img[4] = loadImage('https://i.imgur.com/zulfE7j.png');
+  img[5] = loadImage('https://i.imgur.com/oPjKS7k.png');
+  img[6] = loadImage('https://i.imgur.com/zRpGZLm.png');
 }
 
 function setup() {
-	background(25);
-	createCanvas(windowWidth, windowHeight);
-	imageMode(CENTER);
-	frameRate(25);
-	// img.resize(0, height);
-	
+  createCanvas(windowWidth, windowHeight);
+  x = random(width);
+  y = random(height);
+  xspeed = 5;
+  yspeed = 5;
 }
 
 function draw() {
-	background(25, 25);
-	
-	image(img, width/2+mouseX/50, height/2+mouseY/50);
-	
+  background(0);
+  // rect(x, y, 80, 60);
+  // Draw the img[index] logo
+  image(img[6], x, y);
+
+  x = x + xspeed;
+  y = y + yspeed;
+
+  if (x + img[index].width >= width) {
+    xspeed = -xspeed;
+    x = width - img[index].width;
+    // index = index + 1;
+  } else if (x <= 0) {
+    xspeed = -xspeed;
+    x = 0;
+    // index = index + 1;
+  }
+
+  if (y + img[index].height >= height) {
+    yspeed = -yspeed;
+    y = height - img[index].height;
+    // index = index + 1;
+  } else if (y <= 0) {
+    yspeed = -yspeed;
+    y = 0;
+    // index = index + 1;
+  }
+
 }
 		</script>
 	</div>
