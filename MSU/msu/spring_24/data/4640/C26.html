@@ -36,6 +36,15 @@ function ease(iVal, oVal, eVal){
 // https://youtu.be/0j86zuqqTlQ
 // https://editor.p5js.org/codingtrain/sketches/S-es-dYVn
 
+/*
+	_shader_chromatic-aberration
+	https://github.com/spite/Wagner/blob/master/fragment-shaders/chromatic-aberration-fs.glsl
+	remix cc teddavis.org 2020
+*/
+
+// define global variables for a texture (tex) and shader (warp)
+let tex, theShader
+
 let x;
 let y;
 
@@ -45,6 +54,8 @@ let yspeed;
 let img = [];
 let index = 0;
 
+let crt;
+
 
 function preload() {
   img[0] = loadImage('https://i.imgur.com/QqT8l7R.png');
@@ -53,22 +64,42 @@ function preload() {
   img[3] = loadImage('https://i.imgur.com/o4ofS38.png');
   img[4] = loadImage('https://i.imgur.com/zulfE7j.png');
   img[5] = loadImage('https://i.imgur.com/oPjKS7k.png');
-  img[6] = loadImage('https://i.imgur.com/zRpGZLm.png');
+  img[6] = loadImage('https://i.imgur.com/o1R2bgk.png');
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, WEBGL);
+  
   x = random(width);
   y = random(height);
-  xspeed = 5;
-  yspeed = 5;
+  xspeed = 3;
+  yspeed = 3;
+  
+  pixelDensity(1) // fixes retina display offset
+	setAttributes('antialias', true) // toggle depending on display / performance
+
+	// create 2D/3D layer for graphics being passed into shader
+	tex = createGraphics(width, height)
+	tex.background(0)
+
+	// load vert/frag defined below
+	theShader = createShader(vertShader, fragShader)
+	
 }
 
 function draw() {
   background(0);
-  // rect(x, y, 80, 60);
-  // Draw the img[index] logo
-  image(img[6], x, y);
+  tex.background(0, 50);
+  
+  if(width > 1080){
+  img[index].resize(width/4, 0);
+  } else if (width < 1080){
+  	img[index].resize(width/2, 0);
+  }
+  
+  //translate(-width/2, -height/2);
+  
+  tex.image(img[index], x, y);
 
   x = x + xspeed;
   y = y + yspeed;
@@ -76,24 +107,119 @@ function draw() {
   if (x + img[index].width >= width) {
     xspeed = -xspeed;
     x = width - img[index].width;
-    // index = index + 1;
+    index = index + 1;
   } else if (x <= 0) {
     xspeed = -xspeed;
     x = 0;
-    // index = index + 1;
+    index = index + 1;
   }
 
   if (y + img[index].height >= height) {
     yspeed = -yspeed;
     y = height - img[index].height;
-    // index = index + 1;
+    index = index + 1;
   } else if (y <= 0) {
     yspeed = -yspeed;
     y = 0;
-    // index = index + 1;
+    index = index + 1;
+  }else if (index >= 6){
+  	index = 0;
   }
+  
+  // pass required uniforms to our shader (don't change)
+	theShader.setUniform("resolution", [width, height])
+	theShader.setUniform('tInput', tex)
+	theShader.setUniform("max_distort", abs(sin(frameCount * .001) * 10))
+	theShader.setUniform("iMouse", [map(mouseX, 0, width, 0, 1), map(mouseY, 0, height, 0, 1)])
+	theShader.setUniform("num_iter", 10)
+	theShader.setUniform("focalDistance", 42.0)
+	theShader.setUniform("aperture", 12.0)
+
+	// set + display shader
+	shader(theShader) // apply shader
+	rect(0, 0, width, height) // display shader
 
 }
+
+/* SHADER DEFINITIONS */
+
+let vertShader = `
+	attribute vec3 aPosition;
+	attribute vec2 aTexCoord;
+	
+	varying vec2 vTexCoord;
+	
+	void main() {
+	  vTexCoord = aTexCoord;
+	
+	  vec4 positionVec4 = vec4(aPosition, 1.0);
+	  positionVec4.xy = positionVec4.xy * 2.0 - 1.0;
+	
+	  gl_Position = positionVec4;
+	}
+`
+
+
+let fragShader = `
+	#ifdef GL_ES
+	precision mediump float;
+	#endif
+	
+	uniform sampler2D tInput;
+	uniform vec2 resolution;
+	uniform float max_distort;
+	uniform vec2 iMouse;
+	
+	vec2 barrelDistortion(vec2 coord, float amt) {
+		vec2 cc = coord - iMouse;
+		float dist = dot(cc, cc);
+		return coord + cc * dist * amt;
+	}
+	
+	float sat( float t )
+	{
+		return clamp( t, 0.0, 1.0 );
+	}
+	
+	float linterp( float t ) {
+		return sat( 1.0 - abs( 2.0*t - 1.0 ) );
+	}
+	
+	float remap( float t, float a, float b ) {
+		return sat( (t - a) / (b - a) );
+	}
+	
+	vec4 spectrum_offset( float t ) {
+		vec4 ret;
+		float lo = step(t,0.5);
+		float hi = 1.0-lo;
+		float w = linterp( remap( t, 1.0/6.0, 5.0/6.0 ) );
+		ret = vec4(lo,1.0,hi, 1.) * vec4(1.0-w, w, 1.0-w, 1.);
+	
+		return pow( ret, vec4(1.0/2.2) );
+	}
+	
+	const int num_iter = 37;
+	
+	void main()
+	{	
+		vec2 uv=(gl_FragCoord.xy/resolution.xy*1.0)+.0;
+		uv.y = 1.0 - uv.y;
+		
+		float reci_num_iter_f = 1.0 / float(num_iter);
+		vec4 sumcol = vec4(0.0);
+		vec4 sumw = vec4(0.0);	
+		for ( int i=0; i<num_iter;++i )
+		{
+			float t = float(i) * reci_num_iter_f;
+			vec4 w = spectrum_offset( t );
+			sumw += w;
+			sumcol += w * texture2D( tInput, barrelDistortion(uv, .16 * max_distort*t ) );
+		}
+			
+		gl_FragColor = sumcol / sumw;
+	}
+`
 		</script>
 	</div>
 
