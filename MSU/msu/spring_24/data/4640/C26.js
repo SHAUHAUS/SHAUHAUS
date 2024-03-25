@@ -1,27 +1,4 @@
-<!doctype html>
-
-<html lang="en-us">
-
-<head>
-	<meta charset="UTF-8">
-		<title>C26</title>
-	
-	<link rel="stylesheet" href="../../../../css/stylesheet.css">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
-
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-	<script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
-
-</head>
-
-<body>
-	
-		<div class="jsCont">
-		<script type="text/javascript">
-			function windowResized() {
+function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
 
@@ -243,13 +220,3 @@ let fragShader = `
 	}
 	// caling mainImage() tip from: https://github.com/n1ckfg/PShaderToy/blob/master/p5jsShaderToy/js/shaders/snow.frag#L137
 `
-		</script>
-	</div>
-
-
-<!-- </div> -->
-
-</body>
-	
-
-</html>
