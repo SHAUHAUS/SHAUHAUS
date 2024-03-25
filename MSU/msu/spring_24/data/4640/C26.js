@@ -116,7 +116,7 @@ function draw() {
   // pass required uniforms to our shader (shadertoy style)
 	theShader.setUniform("iResolution", [width, height])
 	theShader.setUniform('iChannel0', tex) // pass layer here
-	theShader.setUniform("iTime", frameCount * .01)
+	theShader.setUniform("iTime", frameCount * .01 + mouseX/5 + mouseY/5)
 	theShader.setUniform("iMouse", [map(mouseX, 0, width, 0, 1), map(mouseY, 0, height, 0, 1)])
 
 	shader(theShader) // apply shader
