@@ -1,3 +1,7 @@
+//put this line in the head of the html: <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+//link to this file in the body with this line: <script src="C26.js"></script>
+//make sure file paths are correct
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
@@ -104,14 +108,14 @@ function draw() {
   }
   
   // text
-	tex.fill(255)
-	tex.textSize(tex.width / 15)
-	tex.textAlign(CENTER, CENTER)
-	tex.textLeading(150);
-	if(width < 1080){
-		tex.textLeading(75);
-	}
-	tex.text("CHANNEL 26\nGD CAPSTONE EXHIBITION\nAPRIL 17-23, 2024\nDEPOT & VAC GALLERY\nTUNE IN TO OUR SHOW!", tex.width / 2, tex.height / 2)
+	// tex.fill(255)
+	// tex.textSize(tex.width / 15)
+	// tex.textAlign(CENTER, CENTER)
+	// tex.textLeading(150);
+	// if(width < 1080){
+	// 	tex.textLeading(75);
+	// }
+	// tex.text("CHANNEL 26\nGD CAPSTONE EXHIBITION\nAPRIL 17-23, 2024\nDEPOT & VAC GALLERY\nTUNE IN TO OUR SHOW!", tex.width / 2, tex.height / 2)
   
   // pass required uniforms to our shader (shadertoy style)
 	theShader.setUniform("iResolution", [width, height])
