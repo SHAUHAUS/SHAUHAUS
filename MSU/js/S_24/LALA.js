@@ -17,7 +17,7 @@ function preload(){
 	img5 = loadImage('https://i.imgur.com/TpuLoP4.png');
 	img6 = loadImage('https://i.imgur.com/ua3pCMD.png');
 	img7 = loadImage('https://i.imgur.com/qguK7Ng.png');
-	img8 = loadImage('https://i.imgur.com/CfE3K5g.png');
+	img8 = loadImage('https://i.imgur.com/AcppNwW.png');
 }
 
 function setup() {
