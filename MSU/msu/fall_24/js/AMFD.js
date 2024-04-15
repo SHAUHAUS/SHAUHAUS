@@ -34,6 +34,7 @@ function draw() {
 	let m = map(mouseX + mouseY, 0, width + height, 0, 255);
 	background(m, 24);
 	
+	push();
 	for(let i = 0; i < 4; i++){
 		rect(0, height/4 * i, width, height/4);
 	}
@@ -53,9 +54,11 @@ function draw() {
 	}else{
 		textSize(width/8);
 	}
+	fill(m);
 	
 	textLeading(height/4);
 	text(abstract + '\n' + methods + '\n' + design[index] + '\n' + fall24[index], width/2, height/2);
+	pop();
 	
 	push();
 	// noFill();
