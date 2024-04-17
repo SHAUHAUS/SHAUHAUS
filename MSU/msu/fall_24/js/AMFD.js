@@ -78,6 +78,8 @@ function draw() {
 	let a3 = map(mouseX, 0, width, width, 0);
 	let a4 = map(mouseX, 0, width, 0, width);
 	
+	// for(let a = 0; a < art; a++){
+
 	rect(a1+manip, h/2, 49, h);
 	rect(a2-manip, h/2, 49, h);
 	rect(a1-manip, height/2, 49, h*2);
@@ -86,9 +88,9 @@ function draw() {
 	rect(a2-manip, height-h/2, 49, h);
 	rect(a3+manip, height-h/2, 49, h);
 	rect(a4-manip, height-h/2, 49, h);
-	
-	// for(let a = 0; a < art; a++){
+
 	// }
+
 	pop();
 	
 }
