@@ -36,7 +36,12 @@ function draw() {
 	
 	push();
 	for(let i = 0; i < 4; i++){
+		push();
+		blendMode(DIFFERENCE);
+		fill(i);
+		stroke(255);
 		rect(0, height/4 * i, width, height/4);
+		pop();
 	}
 	
 	let m2 = map(mouseX, 0, width, 255, 0);
