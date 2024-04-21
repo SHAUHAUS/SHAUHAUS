@@ -25,7 +25,7 @@ function setup() {
 	fill(46, 49, 146);
 	textAlign(LEFT, TOP);
 	
-	div = createDiv('This course will provide introductory instruction in digital fabrication as it relates to object design and sculpture. We will cover 3D Modeling in Fusion 360 and Blender, laser cutting, 3D printing, and fabricating metal forms from CNC plasma cut components. Lectures will cover contemporary art and design utilizing digital fabrication. Assignments will prioritize creative/conceptual intent alongside technical development. Student choice-based learning will anticipate audience as either consumer or viewer to engage in graphic design, product design, and contemporary art making. For GD majors, this course can count as either a concentration elective or sculpture survey. When registering for this course, register for Art 4753 Scupl Mat & Processes.');
+	div = createDiv('Second Summer Session / July 8th-August 6th, 2024'+ '<br>' + 'Professors Caroline Hatfield & Aubrey Pohl' + '<br><br>' + 'This course will provide introductory instruction in digital fabrication as it relates to object design and sculpture. We will cover 3D Modeling in Fusion 360 and Blender, laser cutting, 3D printing, and fabricating metal forms from CNC plasma cut components. Lectures will cover contemporary art and design utilizing digital fabrication. Assignments will prioritize creative/conceptual intent alongside technical development. Student choice-based learning will anticipate audience as either consumer or viewer to engage in graphic design, product design, and contemporary art making. For GD majors, this course can count as either a concentration elective or sculpture survey. When registering for this course, register for Art 4753 Scupl Mat & Processes.');
 	
 }
 
