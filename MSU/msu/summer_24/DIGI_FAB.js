@@ -33,14 +33,14 @@ function draw() {
 	background(242);
 	
 	if(width > 1080){
-	div.position(25, height/2);
 	div.style('width', '40%');
 	}else{
 		if(width < 1080){
-			div.position(25, height/3.5);
-			div.style('width', '70%');
+			// div.position(25, height/3.5);
+			div.style('width', '85%');
 		}
 	}
+	div.position(25, width/3.5);
 	div.style('color', '#2e3192');
 	div.style('background-color', '#f2f2f2');
 	div.style('padding', '5px');
@@ -60,16 +60,16 @@ function draw() {
 	pop();
 	
 	push();
-	if(width > 1080){
+	if(width >= 1080){
 	textSize(width/20);
 	}else{
-		if(width < 1080){
-			textSize(width/10);
+		if(width <= 1080){
+			textSize(width/12);
 		}
 	}
 	textAlign(RIGHT, BOTTOM);
 	// text('Interest Meeting: 05.03.24, Howell Wood Shop' + '\n' + 'Second Summer Session' + '\n' + 'July 8th-August 6th, 2024' + '\n' + 'Professors Caroline Hatfield & Aubrey Pohl', width, height);
-	text('Interest Meeting:' + '\n' + '05.03.24' + '\n' + 'Howell Wood Shop', width, height);
+	text('Interest Meeting:' + '\n' + '05.03.24 @ 12:00' + '\n' + 'Howell Wood Shop', width, height);
 	pop();
 	
 	push();
