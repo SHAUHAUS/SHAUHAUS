@@ -8,9 +8,12 @@ function ease(iVal, oVal, eVal){
 }
 
 let digi, fab, l;
-let div;
 
 let font = googleFont('Roboto');
+
+let info = [];
+
+let index = 0;
 
 function preload(){
 	digi = loadImage('https://i.imgur.com/kNpzAa6.png');
@@ -26,30 +29,14 @@ function setup() {
 	textAlign(LEFT, TOP);
 	pixelDensity(1);
 	frameRate(24);
-	
-	div = createDiv('<strong>2nd Summer Session / July 8th-August 6th, 2024'+ '<br>' + 'Professors Caroline Hatfield & Aubrey Pohl</strong>' + '<br><br>' + 'This course will provide introductory instruction in digital fabrication as it relates to object design and sculpture. We will cover 3D Modeling in Fusion 360 and Blender, laser cutting, 3D printing, and fabricating metal forms from CNC plasma cut components. Lectures will cover contemporary art and design utilizing digital fabrication. Assignments will prioritize creative/conceptual intent alongside technical development. Student choice-based learning will anticipate audience as either consumer or viewer to engage in graphic design, product design, and contemporary art making. For GD majors, this course can count as either a concentration elective or sculpture survey. When registering for this course, register for Art 4753 Scupl Mat & Processes.');
-	
+		
 }
 
 function draw() {
-	let mm = map(frameCount, 0, 2024, .1, 1);
+	let mm = map(frameCount, 0, 2024, .1, 3);
 	pixelDensity(mm);
 
 	background(242);
-	
-	if(width > 1080){
-	div.style('width', '40%');
-	}else{
-		if(width < 1080){
-			// div.position(25, height/3.5);
-			div.style('width', '85%');
-		}
-	}
-	div.position(25, width/3.5);
-	div.style('color', '#2e3192');
-	div.style('background-color', '#f2f2f2');
-	div.style('padding', '10px');
-	div.style('font-size', '15pt');
 	
 	textSize(width/7);
 	
@@ -61,20 +48,37 @@ function draw() {
 	stroke(255);
 	strokeWeight(2);
 	textLeading(l);
-	text('DIGITAL' + '\n' + 'FABRICATION', 0, 0);
+	text('DIGITAL' + '\n' + 'FABRICATION', 0, 5);
 	pop();
+
+	info[0] = 'Interest Meeting:' + '\n' + 'May 3rd, 12:00pm' + '\n' + 'Howell 108';
+	info[1] = '2nd Summer Session' + '\n' + 'July 8th-August 6th' + '\n' + '1-4:50pm, Howell 110';
 	
 	push();
 	if(width >= 1080){
 	textSize(width/20);
 	}else{
 		if(width <= 1080){
-			textSize(width/12);
+			textSize(width/11);
 		}
 	}
 	textAlign(RIGHT, BOTTOM);
 	// text('Interest Meeting: 05.03.24, Howell Wood Shop' + '\n' + 'Second Summer Session' + '\n' + 'July 8th-August 6th, 2024' + '\n' + 'Professors Caroline Hatfield & Aubrey Pohl', width, height);
-	text('Interest Meeting:' + '\n' + '05.03.24 @ 12:00' + '\n' + 'Howell Wood Shop', width, height);
+	text(info[index], width-5, height);
+	pop();
+
+	push();
+	if(width >= 1080){
+	textSize(width/20);
+	}else{
+		if(width <= 1080){
+			textSize(0);
+			noFill();
+		}
+	}
+	textAlign(LEFT, BOTTOM);
+	// text('Interest Meeting: 05.03.24, Howell Wood Shop' + '\n' + 'Second Summer Session' + '\n' + 'July 8th-August 6th, 2024' + '\n' + 'Professors Caroline Hatfield & Aubrey Pohl', width, height);
+	text('2nd Summer Session' + '\n' + 'July 8th-August 6th' + '\n' + '1-4:50pm, Howell 110', 5, height);
 	pop();
 	
 	push();
@@ -86,10 +90,10 @@ function draw() {
 
 
 	if(frameCount > 2024){
-		frameCount = 1;
+		frameCount = 0;
 	}
 
-	print(frameCount);
+	// print(frameCount);
 	
 	
 }
@@ -101,3 +105,14 @@ function googleFont(fontName) {
 	document.head.appendChild(link)
 	return fontName
 }
+
+function mousePressed(){
+	
+	index = index + 1;
+	
+	if(index == info.length){
+		index = 0;
+	}
+	
+}
+
