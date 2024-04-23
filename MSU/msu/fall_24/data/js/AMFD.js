@@ -78,10 +78,10 @@ function draw() {
 	
 	let manip = (sin(frameCount*.024)*49.90)*10;
 	
-	let a1 = map(mouseX, 0, width, 0, width/2);
-	let a2 = map(mouseX, 0, width, width/2, width);
-	let a3 = map(mouseX, 0, width, width, 0);
-	let a4 = map(mouseX, 0, width, 0, width);
+	let a1 = map(width/2, 0, width, 0, width/2);
+	let a2 = map(width/2, 0, width, width/2, width);
+	let a3 = map(width/2, 0, width, width, 0);
+	let a4 = map(width/2, 0, width, 0, width);
 	
 	// for(let a = 0; a < art; a++){
 
@@ -93,6 +93,15 @@ function draw() {
 	rect(a2-manip, height-h/2, 49, h);
 	rect(a3+manip, height-h/2, 49, h);
 	rect(a4-manip, height-h/2, 49, h);
+
+	rect(a1+manip/4, h/2, 49, h);
+	rect(a2-manip/4, h/2, 49, h);
+	rect(a1-manip/4, height/2, 49, h*2);
+	rect(a2+manip/4, height/2, 49, h*2);
+	rect(a1+manip/4, height-h/2, 49, h);
+	rect(a2-manip/4, height-h/2, 49, h);
+	rect(a3+manip/4, height-h/2, 49, h);
+	rect(a4-manip/4, height-h/2, 49, h);
 
 	// }
 
