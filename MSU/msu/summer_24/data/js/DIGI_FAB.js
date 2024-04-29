@@ -16,8 +16,8 @@ let info = [];
 let index = 0;
 
 function preload(){
-	digi = loadImage('https://i.imgur.com/kNpzAa6.png');
-	fab = loadImage('https://i.imgur.com/IdSwOB2.png');
+	digi = loadImage('https://i.imgur.com/8MS4oql.png');
+	fab = loadImage('https://i.imgur.com/W3ESapj.png');
 }
 
 function setup() {
@@ -84,8 +84,8 @@ function draw() {
 	push();
 	let mx = sin(frameCount*.02)*24;
 	blendMode(DIFFERENCE);
-	image(digi, width/2+m+mx, height/2-m-mx);
-	image(fab, width/2-m-mx, height/2+m+mx);
+	image(fab, width/2+m+mx, height/2-m-mx);
+	image(digi, width/2-m-mx, height/2+m+mx);
 	pop();
 
 
