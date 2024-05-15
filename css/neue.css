@@ -141,7 +141,9 @@ hr.a{
 .main_cont{
 	position: fixed;
 	display: inline-block;
-	padding: 0;
+	/*padding: 0;*/
+	padding-left: 5vw;
+	padding-right: 5vw;
 	margin: 0;
 	top: 10vh;
 	width: 100vw;
@@ -187,15 +189,16 @@ hr.a{
 }
 
 .label_div{
-	position: fixed;
-	height: 40px;
-	width: 24%;
+	position: relative;
+	height: auto;
+	width: 15%;
+	border-bottom: thin dashed;
 	/*z-index: 2;*/
 }
 
 .space_40_div{
 	position: relative;
-	height: 70px;
+	height: 25px;
 }
 
 .collapsible{
@@ -314,14 +317,13 @@ hr.a{
 
 .collapsible{
 	padding: 0%;
-	border-style: none;
 	margin: 0;
 	display: block;
 	position: relative;
 	left: 0;
 	float: all;
 	width: auto;
-	border: thin dashed;
+	border-bottom: thin dashed;
 	text-align: all;
 	font-family: 'Roboto Mono', monospace;
 	color: #333333;
