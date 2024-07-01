@@ -51,7 +51,7 @@ function draw() {
 	text('DIGITAL' + '\n' + 'FABRICATION', 0, 5);
 	pop();
 
-	info[0] = 'Interest Meeting:' + '\n' + 'May 3rd, 12:00pm' + '\n' + 'Howell 108';
+	info[0] = 'ART_4753' + '\n' + 'SU_2024' + '\n' + 'DIGI_FAB';
 	info[1] = '2nd Summer Session' + '\n' + 'July 8th-August 6th' + '\n' + '1-4:50pm, Howell 110';
 	
 	push();
