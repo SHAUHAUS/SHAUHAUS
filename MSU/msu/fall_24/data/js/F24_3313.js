@@ -24,7 +24,7 @@ function draw() {
 	rotate(frameCount*.02);
 	rotate(mouseX/20);
 	
-	text('S23_3323', 0, 0);
+	text('F24_3323', 0, 0);
 
 	if(frameCount > 2024){
 		frameCount = 0;
