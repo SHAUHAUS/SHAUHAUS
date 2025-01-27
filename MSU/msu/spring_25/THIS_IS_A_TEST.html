@@ -1,0 +1,59 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+		<title>THIS IS AR TEST</title>
+	
+	<!-- TO MAKE A PAGE IN THIS FOLDER, USE: -->
+	<link rel="stylesheet" href="../css/stylesheet.css">
+
+	<!-- TO MAKE A PAGE IN THE SEMESTER FOLDER, COPY AND PAST THISE PAGE INTO IT AND USE: -->
+	<link rel="stylesheet" href="../../css/stylesheet.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.3/dist/mindar-image-aframe.prod.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+
+	<script src="test.js?1"></script>
+
+	<script type="text/javascript">
+    AFRAME.registerComponent('canvas-updater', {
+        dependencies: ['geometry', 'material'],
+
+            tick: function () {
+                var material, el = this.el;
+                material = el.getObject3D('mesh').material;
+                if (!material.map) { return; }
+                    material.map.needsUpdate = true;
+            }
+        });
+</script>
+
+</head>
+
+
+
+<body>
+
+<canvas id="canvas-ar" style="display:none;"></canvas>
+
+<a-scene mindar-image="imageTargetSrc: data/targets.mind?1; filterMinCF:0.0005; filterBeta: .1;" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+    <a-entity id="example-target" mindar-image-target="targetIndex: 0">
+        
+    <!-- p5.js canvas as texture on plane, width + height ratio for F4/Weltformat poster -->
+    <a-plane width="1" height="1.4145" position="0 0 0" scale="1.05 1.05 1.05" rotation="0 0 0" material="src:#canvas-ar;transparent: true;" canvas-updater></a-plane>
+    </a-entity>
+</a-scene>
+
+</body>
+	
+
+</html>
