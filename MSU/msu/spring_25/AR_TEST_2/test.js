@@ -9,13 +9,10 @@ function preload(){
 }
 
 function setup() {
-	// noCanvas();
-	createCanvas(895, 1280, document.getElementById('canvas-ar')) // poster aspect
+	noCanvas();
+	// createCanvas(895, 1280, document.getElementById('canvas-ar')) // poster aspect
 	pixelDensity(1) // prevent 200+ PPI lag
 
-	arLayers[0] = createGraphics(895, 1280, document.getElementById('canvas-ar')) // poster aspect
-	arLayers[1] = createGraphics(895, 1280, document.getElementById('canvas-ar2')) // poster aspect
-	arLayers[2] = createGraphics(895, 1280, document.getElementById('canvas-ar3')) // poster aspect
 	// createCanvas(895, 1280);
 	pixelDensity(1) // prevent 200+ PPI lag
 	// colorMode(HSL)
@@ -26,6 +23,10 @@ function setup() {
 }
 
 function draw(){
+
+	arLayers[0] = createGraphics(895, 1280, document.getElementById('canvas-ar')) // poster aspect
+	arLayers[1] = createGraphics(895, 1280, document.getElementById('canvas-ar2')) // poster aspect
+	arLayers[2] = createGraphics(895, 1280, document.getElementById('canvas-ar3')) // poster aspect
 
 	arLayers[0].image(img, 0, 0);
 	arLayers[1].image(img2, 0, 0);
