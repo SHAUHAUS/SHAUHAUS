@@ -17,9 +17,9 @@ function setup() {
 	pixelDensity(1) // prevent 200+ PPI lag
 	// colorMode(HSL)
 	
-	img.resize(width, height);
-	img1.resize(width, height);
-	img2.resize(width, height);
+	img.resize(895, 1280);
+	img1.resize(895, 1280);
+	img2.resize(895, 1280);
 }
 
 function draw(){
