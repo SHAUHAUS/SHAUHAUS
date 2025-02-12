@@ -25,8 +25,8 @@ function setup() {
 function draw(){
 
 	arLayers[0].image(img, 0, 0);
-	arLayers[0].image(img2, 0, 0);
-	arLayers[0].image(img3, 0, 0);
+	arLayers[1].image(img2, 0, 0);
+	arLayers[2].image(img3, 0, 0);
 	
 	
 
