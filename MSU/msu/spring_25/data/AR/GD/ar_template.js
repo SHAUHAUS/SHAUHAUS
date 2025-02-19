@@ -33,10 +33,10 @@ function draw(){
     arLayers[3] = createGraphics(895, 1350, document.getElementById('canvas-ar4')) // poster aspect
     arLayers[4] = createGraphics(895, 1350, document.getElementById('canvas-ar5')) // poster aspect
 
-	arLayers[0].image(img2, 0, 0);
-	arLayers[1].image(img1, 0, 0);
-	arLayers[2].image(img, 0, 0);
-    arLayers[3].image(img, 0, 0);
+	arLayers[0].image(img4, 0, 0);
+	arLayers[1].image(img3, 0, 0);
+	arLayers[2].image(img2, 0, 0);
+    arLayers[3].image(img1, 0, 0);
     arLayers[4].image(img, 0, 0);
 	//add layers as needed, make sure to match in html
 	
