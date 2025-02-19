@@ -4,9 +4,9 @@ let img, img1, img2;
 let arLayers = []
 
 function preload(){
-	img = loadImage('Bottom_AR');
-	img1 = loadImage('Middle_AR');
-	img2 = loadImage('Top_AR');
+	img = loadImage('Bottom_AR.png');
+	img1 = loadImage('Middle_AR.png');
+	img2 = loadImage('Top_AR.png');
 	// add iamge loads as needed per layer
 }
 
@@ -27,9 +27,9 @@ function draw(){
 	arLayers[1] = createGraphics(895, 1350, document.getElementById('canvas-ar2')) // poster aspect
 	arLayers[2] = createGraphics(895, 1350, document.getElementById('canvas-ar3')) // poster aspect
 
-	arLayers[0].image(img2, 0, 0);
+	arLayers[0].image(img, 0, 0);
 	arLayers[1].image(img1, 0, 0);
-	arLayers[2].image(img, 0, 0);
+	arLayers[2].image(img2, 0, 0);
 	//add layers as needed, make sure to match in html
 	
 	
