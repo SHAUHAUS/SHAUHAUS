@@ -24,7 +24,7 @@ function setup() {
 function draw(){
 
 	arLayers[0] = createGraphics(895, 1350, document.getElementById('canvas-ar')) // poster aspect
-	arLayers[1] = createGraphics(895, 1350, document.getElementById('canvas-ar2')) // poster aspect
+	arLayers[1] = createGraphics(1326, 880, document.getElementById('canvas-ar2')) // poster aspect
 	arLayers[2] = createGraphics(895, 1350, document.getElementById('canvas-ar3')) // poster aspect
 
 	arLayers[0].image(img, 0, 0);
