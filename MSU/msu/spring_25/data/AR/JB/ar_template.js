@@ -1,12 +1,12 @@
-let img, img1;
+let img, img1, img2;
 // add image variables as needed perlayer
 
 let arLayers = []
 
 function preload(){
 	img = loadImage('AR LAYER.png');
-	img1 = loadImage('JB AR.png');
-	// img2 = loadImage('');
+	img1 = loadImage('AR LAYER.png');
+	img2 = loadImage('JB AR.png');
 	// add iamge loads as needed per layer
 }
 
@@ -25,11 +25,11 @@ function draw(){
 
 	arLayers[0] = createGraphics(895, 1193, document.getElementById('canvas-ar')) // poster aspect
 	arLayers[1] = createGraphics(895, 1193, document.getElementById('canvas-ar2')) // poster aspect
-	// arLayers[2] = createGraphics(895, 1193, document.getElementById('canvas-ar3')) // poster aspect
+	arLayers[2] = createGraphics(895, 1193, document.getElementById('canvas-ar3')) // poster aspect
 
-	arLayers[0].image(img2, 0, 0);
-	arLayers[1].image(img, 0, 0);
-	// arLayers[2].image(img, 0, 0);
+	arLayers[0].image(img, 0, 0);
+	arLayers[1].image(img1, 0, 0);
+	arLayers[2].image(img2, 0, 0);
 	//add layers as needed, make sure to match in html
 	
 	
