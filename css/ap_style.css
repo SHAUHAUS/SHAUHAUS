@@ -113,10 +113,10 @@ a:hover{
 	-webkit-overflow-scrolling: touch;
 }
 
-.label{
+.label, .label2{
 	float: left;
 	/*padding: 1%;*/
-	width: 50%;
+	width: 50vw;
 	height: auto;
 	margin: 0;
 	position: relative;
@@ -139,13 +139,21 @@ a:hover{
 }
 
 .sub_label2{
-	left: 50%;
+	left: 50vw;
 }
 
 
 /* /////////////////// MEDIUM SCREEN  ////////////////////// */
 
 @media screen and (max-width:  1200px){
+
+.label2{
+	position: fixed;
+	padding: 1%;
+	top: 30vh;
+	left: 0;
+
+}
 
 
 }	
