@@ -315,7 +315,7 @@ iframe{
 
 .grid-container2{
 	display: grid;
-	grid-template-columns: auto auto;
+	grid-template-columns: auto 35vw;
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -336,6 +336,8 @@ iframe{
 
 .grid-item{
 	height: 100%;
+	padding: 10%;
+	margin: auto;
 }
 
 .imageScroll{
