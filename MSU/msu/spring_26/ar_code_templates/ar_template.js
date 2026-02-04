@@ -4,9 +4,9 @@ let img, img1, img2;
 let arLayers = []
 
 function preload(){
-	img = loadImage('paste image link here');
-	img1 = loadImage('paste image link here');
-	img2 = loadImage('paste image link here');
+	img = loadImage('https://i.imgur.com/6pgR5mq.png');
+	img1 = loadImage('https://i.imgur.com/J6z5mz0.png');
+	img2 = loadImage('https://i.imgur.com/7IkXnDa.png');
 	// add iamge loads as needed per layer
 }
 
