@@ -1,0 +1,112 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+		<title>MP1_GD2_S24</title>
+	
+	<link rel="stylesheet" href="../../../../../css/stylesheet.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+
+</head>
+
+<body>
+	
+		<div class="jsCont">
+		<script type="text/javascript">
+//new_001
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+
+
+let image, storus, space;
+
+// here is where we will load the image
+function preload() {
+
+	frog = loadImage('https://i.imgur.com/vpxE4N5.jpg');
+	space = loadImage('https://i.imgur.com/m3jBtIz.jpg');
+	storus = loadImage('https://i.imgur.com/6DF5T4l.jpg');
+}
+
+
+function setup() {
+	background(0);
+	createCanvas(windowWidth, windowHeight, WEBGL);
+
+
+	noStroke();
+
+}
+
+function draw() {
+	background(0);
+
+
+	push();
+
+	rotateX(frameCount * .005);
+	rotateY(frameCount * .005);
+
+	texture(frog);
+
+	sphere(width / 8);
+	pop();
+
+
+
+	push();
+	texture(space);
+	rotateX(-frameCount * .005);
+	rotateY(-frameCount * .005);
+
+	sphere(width, height);
+	pop();
+	
+	texture(storus);
+	rotateX(-frameCount * .005);
+	rotateY(-frameCount * .005);
+
+
+	torus(width / 4, 10);
+
+	orbitControl();
+}
+
+
+function keyPressed() {
+	if(key === ' ') {
+		save('planet.jpg');
+	}
+}
+</script>
+	</div>
+
+
+<!-- </div> -->
+
+</body>
+	
+
+</html>

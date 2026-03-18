@@ -1,0 +1,121 @@
+<!doctype html>
+
+<html lang="en-us">
+
+<head>
+	<meta charset="UTF-8">
+		<title>MP1_GD2_S24</title>
+	
+	<link rel="stylesheet" href="../../../../../css/stylesheet.css">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
+
+</head>
+
+<body>
+	
+		<div class="jsCont">
+		<script type="text/javascript">
+//puppy_candy_world
+
+/* CUSTOM FUNCTIONS FOR P5LIVE */
+// keep fullscreen if window resized
+function windowResized() {
+	resizeCanvas(windowWidth, windowHeight);
+}
+
+// custom ease function
+function ease(iVal, oVal, eVal){
+	return oVal += (iVal - oVal) * eVal;
+}
+
+// processing compatibility
+function println(msg){
+	print(msg);
+}
+
+
+let dog, puppy, space;
+
+function preload(){
+	dog = loadImage('https://i.imgur.com/A8eQsll.jpeg');
+	puppy = loadImage('https://i.imgur.com/JklZxQD.jpgv');
+	space = loadImage('https://i.imgur.com/rMTgDBS.jpg');
+}
+
+
+
+function setup() {
+	background(0);
+	createCanvas(windowWidth, windowHeight, WEBGL);
+	
+	noStroke();
+	dog.resize(width, height);
+}
+
+function draw() {
+	background(0);
+	push();
+	rotateX(frameCount * .005);
+	rotateY(frameCount * .005);
+	
+	texture(dog);
+	
+	sphere(width / 6);
+	pop();
+	
+	push();
+	rotateX(-frameCount * .005);
+	rotateY(-frameCount * .005);
+	
+	texture(puppy);
+	
+	torus(width/ 5, 15);
+	pop();
+	
+	push();
+	rotateX(-frameCount * .003);
+	rotateY(-frameCount * .003);
+
+	texture(puppy);
+	
+	torus(width/ 5, 10);
+	pop();
+	
+	push();
+	rotateX(-frameCount * .003);
+	rotateY(-frameCount * .003);
+	
+	texture(space);
+	sphere(width);
+	pop();
+	
+	// print(width);
+
+	orbitControl();
+	
+	
+}
+
+function keyPressed(){
+	if(key === ' '){
+		save('bird_planet.jpg');
+	}
+}
+
+
+</script>
+	</div>
+
+
+<!-- </div> -->
+
+</body>
+	
+
+</html>
