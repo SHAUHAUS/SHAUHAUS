@@ -8,7 +8,7 @@ function ease(iVal, oVal, eVal){
 }
 
 // let font = googleFont('Cabin Sketch');
-let img, img1, img2, img3;
+let img, img1, img2;
 
 function preload(){
 	img = loadImage('https://i.imgur.com/V7JQ58F.jpeg');
@@ -29,7 +29,6 @@ function setup() {
 	img.resize(0, height);
 	img1.resize(width, 0);
 	img2.resize(width, 0);
-	img3.resize(width, 0);
 	
 }
 
@@ -56,7 +55,6 @@ function draw() {
 		img.resize(width, 0);
 		img1.resize(0, height);
 		img2.resize(0, height);
-		img3.resize(0, height);
 	}
 	
 	text('scroll to view!', width/2, height-25);
