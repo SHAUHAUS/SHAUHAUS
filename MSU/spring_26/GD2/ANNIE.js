@@ -8,12 +8,11 @@ function ease(iVal, oVal, eVal){
 }
 
 // let font = googleFont('Cabin Sketch');
-let img, img1, img2;
+let img, img1;
 
 function preload(){
 	img = loadImage('https://i.imgur.com/V7JQ58F.jpeg');
-	img1 = loadImage('1.png');
-	img2 = loadImage('2.png');
+	img1 = loadImage('https://i.imgur.com/4hA7hpD.png');
 }
 
 function setup() {
@@ -28,7 +27,6 @@ function setup() {
 	
 	img.resize(0, height);
 	img1.resize(width, 0);
-	img2.resize(width, 0);
 	
 }
 
@@ -43,18 +41,11 @@ function draw() {
 	image(img1, 0, 0);
 	pop();
 	
-	push();
-	translate(width/2, height/2);
-	rotate(-r);
-	image(img2, 0, 0);
-	pop();
-	
 	image(img, width/2, height/2);
 	
 	if(width < 1080){
 		img.resize(width, 0);
 		img1.resize(0, height);
-		img2.resize(0, height);
 	}
 	
 	text('scroll to view!', width/2, height-25);
