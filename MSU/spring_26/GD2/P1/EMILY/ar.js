@@ -4,7 +4,7 @@ let img1, img2, img3;
 let arLayers = []
 
 function preload(){
-	img1 = loadImage('data/img.png');
+	img1 = loadImage('data/img1.png');
 	img2 = loadImage('data/img2.png');
 	img3 = loadImage('data/img3.png');
 	// add iamge loads as needed per layer
@@ -15,9 +15,9 @@ function setup() {
 	pixelDensity(1) // prevent 200+ PPI lag
 	// colorMode(HSL)
 	
-	img.resize(895, 1350);
 	img1.resize(895, 1350);
 	img2.resize(895, 1350);
+	img3.resize(895, 1350);
 	//add image resizes per layer as needed
 }
 

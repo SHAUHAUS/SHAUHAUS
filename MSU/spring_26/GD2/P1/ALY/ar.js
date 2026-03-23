@@ -1,13 +1,13 @@
-let img, img1, img2, img3;
+let img1, img2, img3, img4;
 // add image variables as needed perlayer
 
 let arLayers = []
 
 function preload(){
-	img = loadImage('data/img1.png');
-	img1 = loadImage('data/img2.png');
-	img2 = loadImage('data/img3.png');
-	img3 = loadImage('data/img4.png');
+	img1 = loadImage('data/img1.png');
+	img2 = loadImage('data/img2.png');
+	img3 = loadImage('data/img3.png');
+	img4 = loadImage('data/img4.png');
 	// add iamge loads as needed per layer
 }
 
@@ -16,10 +16,10 @@ function setup() {
 	pixelDensity(1) // prevent 200+ PPI lag
 	// colorMode(HSL)
 	
-	img.resize(895, 1350);
 	img1.resize(895, 1350);
 	img2.resize(895, 1350);
 	img3.resize(895, 1350);
+	img4.resize(895, 1350);
 	//add image resizes per layer as needed
 }
 
@@ -30,10 +30,10 @@ function draw(){
 	arLayers[2] = createGraphics(895, 1350, document.getElementById('canvas-ar3')) // poster aspect
 	arLayers[3] = createGraphics(895, 1350, document.getElementById('canvas-ar4')) // poster aspect
 
-	arLayers[0].image(img, 0, 0);
-	arLayers[1].image(img1, 0, 0);
-	arLayers[2].image(img2, 0, 0);
-	arLayers[3].image(img3, 0, 0);
+	arLayers[0].image(img1, 0, 0);
+	arLayers[1].image(img2, 0, 0);
+	arLayers[2].image(img3, 0, 0);
+	arLayers[3].image(img4, 0, 0);
 	//add layers as needed, make sure to match in html
 	
 	

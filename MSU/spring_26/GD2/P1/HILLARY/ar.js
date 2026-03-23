@@ -15,9 +15,9 @@ function setup() {
 	pixelDensity(1) // prevent 200+ PPI lag
 	// colorMode(HSL)
 	
-	img.resize(895, 1350);
 	img1.resize(895, 1350);
 	img2.resize(895, 1350);
+	img3.resize(895, 1350);
 	//add image resizes per layer as needed
 }
 
