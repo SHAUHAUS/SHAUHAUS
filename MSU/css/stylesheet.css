@@ -246,6 +246,14 @@ iframe{
 	opacity: 0.5;
 }
 
+.dispimg{
+	display: block;
+	width: 100%;
+	height: auto;
+	/*max-height: 100vh;*/
+	/*object-fit: contain;*/
+}
+
 
 .espace{
 	height: 5%;
