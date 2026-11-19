@@ -240,8 +240,9 @@ iframe{
 }
 
 .imgLink:hover{
-	width: 100%;
+	/*width: 80%;*/
 	opacity: 0.5;
+	margin: auto;
 }
 
 .dispimg{
@@ -323,7 +324,7 @@ iframe{
 .grid-container2{
 	display: grid;
 	grid-template-columns: auto auto;
-	grid-column-gap: 5%;
+	grid-column-gap: 3%;
 	grid-row-gap: 1%;
 	padding: 1%;
 	-webkit-overflow-scrolling: touch;
